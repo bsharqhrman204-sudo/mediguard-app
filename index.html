@@ -1,31 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl" id="htmlTag">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MediGuard - AI Medical Assistant</title>
+    <title>MediGuard AI - المساعد الطبي العالمي</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px; color: #333; }
-        .container { max-width: 600px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        h1 { color: #0284c7; text-align: center; }
-        .chat-box { border: 1px solid #e2e8f0; border-radius: 8px; height: 300px; padding: 10px; overflow-y: auto; margin-bottom: 15px; background: #fafafa; }
-        .input-group { display: flex; gap: 10px; }
-        input[type="text"] { flex: 1; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; outline: none; }
-        button { background: #0284c7; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; }
-        button:hover { background: #0369a1; }
+        * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f0f4f8; margin: 0; padding: 15px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .chat-card { width: 100%; max-width: 500px; background: #ffffff; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); display: flex; flex-direction: column; height: 85vh; overflow: hidden; }
+        .header { background: linear-gradient(135deg, #0284c7, #0369a1); color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { margin: 0; font-size: 1.3rem; display: flex; align-items: center; gap: 8px; }
+        .lang-btn { background: rgba(255, 255, 255, 0.2); border: 1px solid white; color: white; padding: 5px 12px; border-radius: 20px; cursor: pointer; font-size: 0.85rem; font-weight: bold; }
+        .chat-box { flex: 1; padding: 15px; overflow-y: auto; background-color: #f8fafc; display: flex; flex-direction: column; gap: 12px; }
+        .message { max-width: 80%; padding: 10px 14px; border-radius: 14px; font-size: 0.95rem; line-height: 1.4; word-wrap: break-word; }
+        .bot-msg { background-color: #e0f2fe; color: #0369a1; align-self: flex-start; border-bottom-right-radius: 4px; }
+        .user-msg { background-color: #0284c7; color: white; align-self: flex-end; border-bottom-left-radius: 4px; }
+        .input-area { padding: 12px; background: white; border-top: 1px solid #e2e8f0; display: flex; gap: 8px; }
+        input[type="text"] { flex: 1; padding: 12px; border: 1px solid #cbd5e1; border-radius: 24px; font-size: 0.95rem; outline: none; }
+        button.send-btn { background-color: #0284c7; color: white; border: none; padding: 0 18px; border-radius: 24px; cursor: pointer; font-weight: bold; }
+        .disclaimer { font-size: 0.7rem; color: #94a3b8; text-align: center; padding: 6px 10px; background: #f1f5f9; margin: 0; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>MediGuard AI</h1>
-        <p style="text-align: center; color: #64748b;">Your global intelligent medical assistant.</p>
+    <div class="chat-card">
+        <div class="header">
+            <h1>🩺 MediGuard AI</h1>
+            <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">English</button>
+        </div>
         <div class="chat-box" id="chatBox">
-            <p><strong>MediGuard AI:</strong> Hello! How can I assist you with your health inquiries today?</p>
+            <div class="message bot-msg" id="welcomeMsg">أهلاً بك! أنا مساعدك الطبي الذكي. كيف يمكنني مساعدتك في استفساراتك الصحية اليوم؟</div>
         </div>
-        <div class="input-group">
-            <input type="text" id="userInput" placeholder="Type your medical question here...">
-            <button onclick="sendMessage()">Send</button>
+        <div class="input-area">
+            <input type="text" id="userInput" placeholder="اكتب سؤالك الطبي هنا..." onkeypress="handleKeyPress(event)">
+            <button class="send-btn" onclick="sendMessage()" id="sendBtn">إرسال</button>
         </div>
+        <p class="disclaimer" id="disclaimerText">تنبيه: هذا التطبيق للتوعية فقط ولا يغني عن استشارة الطبيب المختص.</p>
     </div>
     <script src="src/main.js"></script>
 </body>
