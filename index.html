@@ -4,9 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MediGuard - AI Medical Assistant</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h1 { color: #0284c7; text-align: center; }
+        .chat-box { border: 1px solid #e2e8f0; border-radius: 8px; height: 300px; padding: 10px; overflow-y: auto; margin-bottom: 15px; background: #fafafa; }
+        .input-group { display: flex; gap: 10px; }
+        input[type="text"] { flex: 1; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; outline: none; }
+        button { background: #0284c7; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #0369a1; }
+    </style>
 </head>
 <body>
-    <h1>Welcome to MediGuard</h1>
-    <p>Your AI-driven medical assistant for global health management.</p>
+    <div class="container">
+        <h1>MediGuard AI</h1>
+        <p style="text-align: center; color: #64748b;">Your global intelligent medical assistant.</p>
+        <div class="chat-box" id="chatBox">
+            <p><strong>MediGuard AI:</strong> Hello! How can I assist you with your health inquiries today?</p>
+        </div>
+        <div class="input-group">
+            <input type="text" id="userInput" placeholder="Type your medical question here...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <script src="src/main.js"></script>
 </body>
 </html>
