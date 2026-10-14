@@ -1,0 +1,16 @@
+{
+  "name": "MediGuard AI Enterprise MAX",
+  "short_name": "MediGuard",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0284c7",
+  "description": "المنظومة الطبية الشاملة الموثقة مع حماية PIN",
+  "icons": [
+    {
+      "src": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/solid/heart-pulse.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
